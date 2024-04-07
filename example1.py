@@ -12,9 +12,6 @@ diseases = [
 for disease in diseases:
     st.write(disease)
     checkbox_value = st.number_input(f"Enter 0 or 1 for {disease}", min_value=0, max_value=1, value=0, step=1)
-    if st.button(f"Set {disease} to 0"):
-        checkbox_value = 0
-    if st.button(f"Set {disease} to 1"):
-        checkbox_value = 1
+    
 
 # You can add any additional content or functionality here
