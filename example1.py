@@ -8,15 +8,20 @@ diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
 
-# Display disease checkboxes
+# Dictionary to store checkbox values
+checkbox_values = {disease: False for disease in diseases}
+
+# Display checkboxes for each disease
 for disease in diseases:
-    st.checkbox(disease)
+    checkbox_values[disease] = st.checkbox(disease)
 
 # Reset button to clear all checkboxes
 if st.button("Reset"):
-    st.session_state.checked_boxes = {}
+    checkbox_values = {disease: False for disease in diseases}
 
-# Predict button
+# Button to save selections
 if st.button("Predict"):
-    checked_diseases = [disease for disease in diseases if st.session_state.get(disease)]
-    st.write("Selected diseases:", checked_diseases)
+    # Perform prediction or save selections here
+    st.write("Selections saved!")
+
+# You can add any additional content or functionality here
