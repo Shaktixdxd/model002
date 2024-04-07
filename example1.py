@@ -32,4 +32,4 @@ if st.button("Diabetes Test Result"):
     result = svm_model.predict("Itching,Skin Rash,Nodal Skin Eruptions")
     st.text_area("Selected xxxxxs:", value=result, height=100)
     
-st.success(diab_diagnosis)
+st.success(result)
