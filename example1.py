@@ -1,65 +1,46 @@
 import streamlit as st
 import pickle
-
-# Load the saved models
-svm_model = pickle.load(open('final_svm.sav', 'rb'))
-#rf_model = pickle.load(open('final_rf.sav', 'rb'))
-nb_model = pickle.load(open('final_nb.sav', 'rb'))
-
-# Function to predict diseases based on selected symptoms
-def predict_diseases(selected_symptoms):
-    # Create input vector
-    input_vector = [0] * len(diseases)
-    for symptom, value in selected_symptoms.items():
-        input_vector[diseases.index(symptom)] = value
-    
-    # Make predictions using loaded models
-    svm_prediction = svm_model.predict([input_vector])[0]
-    #rf_prediction = rf_model.predict([input_vector])[0]
-    nb_prediction = nb_model.predict([input_vector])[0]
-    
-    # Combine predictions and return
-    predictions = [svm_prediction, nb_prediction]
-    return predictions
+import numpy as np
 
 # Set page title
 st.title("ML Disease Model")
 
-# List of diseases (replace with your 132 diseases)
-diseases = [
-    "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
+# List of symptoms (replace with your 132 symptoms)
+symptoms = [
+    "Itching","Skin Rash","Nodal Skin Eruptions",  # Add all 132 symptoms here
 ]
 
-# Dictionary to store symptom values
-symptom_values = {}
+# Dictionary to store checkbox values
+checkbox_values = {}
 
-# Display checkboxes for each disease
-for disease in diseases:
-    st.write(disease)
-    symptom_values[disease] = st.number_input(f"{disease}:", min_value=0, max_value=1, value=0, step=1, key=disease)
+# Display symptom checkboxes
+for symptom in symptoms:
+    checkbox_values[symptom] = st.number_input(f"{symptom}:", min_value=0, max_value=1, value=0, step=1, key=symptom)
 
 # Save button
 if st.button("Save"):
-    # Get selected diseases with value 1
-    selected_diseases = [disease for disease, value in symptom_values.items() if value == 1]
-    selected_diseases.sort()  # Sort alphabetically
-    output_string = ", ".join(selected_diseases)
-    st.text_area("Selected Diseases (Alphabetical Order):", value=output_string, height=100)
+    selected_symptoms = [symptom for symptom, value in checkbox_values.items() if value == 1]
+    selected_symptoms.sort()
+    output_string = ", ".join(selected_symptoms)
+    st.text_area("Selected Symptoms:", value=output_string, height=100)
 
-# Load the .sav files
-st.sidebar.title("Load Models")
+# Load the trained models
+@st.cache
+def load_models():
+    svm_model = pickle.load(open("final_svm.sav", "rb"))
+    #rf_model = pickle.load(open("final_rf.sav", "rb"))
+    nb_model = pickle.load(open("final_nb.sav", "rb"))
+    return svm_model, nb_model
 
-# Load SVM model
-if st.sidebar.button("Load SVM Model"):
-    svm_model = pickle.load(open('final_svm.sav', 'rb'))
-    st.sidebar.success("SVM Model Loaded Successfully!")
+svm_model, nb_model = load_models()
 
-# Load Random Forest model
-if st.sidebar.button("Load Random Forest Model"):
-    rf_model = pickle.load(open('final_rf.sav', 'rb'))
-    st.sidebar.success("Random Forest Model Loaded Successfully!")
+# Function to predict disease based on selected symptoms
+def predict_disease(symptoms):
+    input_data = np.array([int(symptom in symptoms) for symptom in symptoms]).reshape(1, -1)
+    svm_pred = svm_model.predict(input_data)[0]
+    #rf_pred = rf_model.predict(input_data)[0]
+    nb_pred = nb_model.predict(input_data)[0]
+    return svm_pred, nb_pred
 
-# Load Naive Bayes model
-if st.sidebar.button("Load Naive Bayes Model"):
-    nb_model = pickle.load(open('final_nb.sav', 'rb'))
-    st.sidebar.success("Naive Bayes Model Loaded Successfully!")
+# Example usage of predict_disease function
+# svm_pred, nb_pred = predict_disease(selected_symptoms)
