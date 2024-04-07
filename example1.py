@@ -1,9 +1,9 @@
 import pickle
 import streamlit as st
 
-svm_model = pickle.load(open('final_svm.sav', 'rb'))
-nb_model = pickle.load(open('final_nb.sav', 'rb'))
-rf_model = pickle.load(open('final_rf.sav', 'rb'))
+#svm_model = pickle.load(open('final_svm.sav', 'rb'))
+#nb_model = pickle.load(open('final_nb.sav', 'rb'))
+#rf_model = pickle.load(open('final_rf.sav', 'rb'))
 
 import streamlit as st
 
@@ -36,3 +36,11 @@ if st.button("Save"):
     # Save selected diseases as string in code
     selected_diseases_code = f'selected_diseases = "{selected_diseases_str}"'
     st.text_area("Selected Diseases Code:", value=selected_diseases_code, height=100)
+
+
+ # getting the input data from the user
+    col1 = st.columns(1)
+    
+    with col1:
+        Diseases = st.text_input('Number of Pregnancies')
+        
