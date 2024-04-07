@@ -10,6 +10,13 @@ diseases = [
 
 # Display disease checkboxes
 for disease in diseases:
-    checkbox_value = st.checkbox(disease)
+    st.checkbox(disease)
 
-# You can add any additional content or functionality here
+# Reset button to clear all checkboxes
+if st.button("Reset"):
+    st.session_state.checked_boxes = {}
+
+# Predict button
+if st.button("Predict"):
+    checked_diseases = [disease for disease in diseases if st.session_state.get(disease)]
+    st.write("Selected diseases:", checked_diseases)
