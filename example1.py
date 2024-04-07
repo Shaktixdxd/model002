@@ -3,7 +3,7 @@ import pickle
 
 # Load the saved models
 svm_model = pickle.load(open('final_svm.sav', 'rb'))
-rf_model = pickle.load(open('final_rf.sav', 'rb'))
+#rf_model = pickle.load(open('final_rf.sav', 'rb'))
 nb_model = pickle.load(open('final_nb.sav', 'rb'))
 
 # Function to predict diseases based on selected symptoms
@@ -15,11 +15,11 @@ def predict_diseases(selected_symptoms):
     
     # Make predictions using loaded models
     svm_prediction = svm_model.predict([input_vector])[0]
-    rf_prediction = rf_model.predict([input_vector])[0]
+    #rf_prediction = rf_model.predict([input_vector])[0]
     nb_prediction = nb_model.predict([input_vector])[0]
     
     # Combine predictions and return
-    predictions = [svm_prediction, rf_prediction, nb_prediction]
+    predictions = [svm_prediction, nb_prediction]
     return predictions
 
 # Set page title
