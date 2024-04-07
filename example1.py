@@ -4,17 +4,13 @@ import streamlit as st
 st.title("Disease Prediction using ML")
 
 # Text display box
-text_input = st.text_area("Enter your text here:")
-
-# Button to copy text
-if st.button("COPY"):
-    st.text_area("Copied Text:", value=text_input, height=100)
+text_input = st.text_area("Selected Diseases:")
 
 # Button to clear text
 if st.button("CLEAR"):
     text_input = ""
 
-# List of diseases
+# List of diseases (replace with your list of 132 diseases)
 diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
@@ -22,10 +18,16 @@ diseases = [
 # Display buttons for each disease
 for disease in diseases:
     if st.button(disease):
-        # If text area is not empty, add a comma before adding new disease
+        # Add disease name to the text box
         if text_input:
-            text_input += ", "
-        text_input += disease
+            text_input += ", " + disease
+        else:
+            text_input += disease
 
-# Display selected diseases
-st.text_area("Selected Diseases:", value=text_input, height=200)
+# Sort the disease names alphabetically
+disease_list = text_input.split(", ")
+disease_list.sort()
+
+# Display the sorted disease names in the text box
+sorted_text = ", ".join(disease_list)
+st.text_area("Selected Diseases:", value=sorted_text, height=200)
