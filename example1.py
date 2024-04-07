@@ -44,6 +44,6 @@ def predict_disease(symptoms):
 
 # Example usage of predict_disease function
 # svm_pred, nb_pred = predict_disease(selected_symptoms)
-st.success(svm_pred, nb_pred)
+#st.success(svm_pred, nb_pred)
 st.success( nb_pred)
 st.success(svm_pred)
