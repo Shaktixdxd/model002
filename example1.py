@@ -1,4 +1,9 @@
+import pickle
 import streamlit as st
+
+svm_model = pickle.load(open('final_svm.sav', 'rb'))
+nb_model = pickle.load(open('final_nb.sav', 'rb'))
+rf_model = pickle.load(open('final_rf.sav', 'rb'))
 
 # Set page title
 st.title("ML Disease Model")
