@@ -8,23 +8,16 @@ diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
 
-# Display disease checkboxes and buttons
+# Dictionary to store checkbox values
+checkbox_values = {}
+
+# Display disease checkboxes
 for disease in diseases:
-    col1, col2 = st.columns([4, 1])
-    with col1:
-        st.write(disease)
-    with col2:
-        checkbox_value = st.number_input("", min_value=0, max_value=1, value=0, step=1)
+    checkbox_values[disease] = st.number_input(f"{disease}:", min_value=0, max_value=1, value=0, step=1, key=disease)
 
 # Save button
 if st.button("Save"):
-    selected_diseases = [disease for disease, value in zip(diseases, checkbox_values) if value == 1]
-    selected_diseases.sort()  # Sort selected diseases alphabetically
+    selected_diseases = [disease for disease, value in checkbox_values.items() if value == 1]
+    selected_diseases.sort()
     output_string = ", ".join(selected_diseases)
-    st.text_area("Selected Diseases:", value=output_string)
-
-# Copy button
-if st.button("Predict"):
-    # getting the input data from the user
-    col1 = st.columns(1)
-        Diseases = st.text_input('Number of Pregnancies')
+    st.text_area("Selected Diseases:", value=output_string, height=100)
