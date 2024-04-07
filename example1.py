@@ -1,29 +1,20 @@
 import streamlit as st
 
 # Set page title
-st.title("Disease Prediction using ML")
-
-# Text display box
-text_input = st.text_area("Selected Diseases:")
-
-# Button to clear text
-if st.button("CLEAR"):
-    text_input = ""
+st.title("ML Disease Model")
 
 # List of diseases (replace with your 132 diseases)
 diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
 
-# Display buttons for each disease
+# Display disease checkboxes and buttons
 for disease in diseases:
-    if st.button(disease):
-        # Append disease name to text input
-        if text_input:
-            text_input += ", "
-        text_input += disease
+    st.write(disease)
+    checkbox_value = st.number_input(f"Enter 0 or 1 for {disease}", min_value=0, max_value=1, value=0, step=1)
+    if st.button(f"Set {disease} to 0"):
+        checkbox_value = 0
+    if st.button(f"Set {disease} to 1"):
+        checkbox_value = 1
 
-# Sort and display selected diseases alphabetically
-selected_diseases = sorted(text_input.split(", "))
-output_string = ", ".join(selected_diseases)
-st.write("Output:", output_string)
+# You can add any additional content or functionality here
