@@ -16,18 +16,12 @@ diseases = [
 ]
 
 # Display buttons for each disease
-for disease in diseases:
+for disease in sorted(diseases):  # Sort diseases alphabetically
     if st.button(disease):
-        # Add disease name to the text box
+        # If text area is not empty, add a comma before adding new disease
         if text_input:
-            text_input += ", " + disease
-        else:
-            text_input += disease
+            text_input += ", "
+        text_input += disease
 
-# Sort the disease names alphabetically
-disease_list = text_input.split(", ")
-disease_list.sort()
-
-# Display the sorted disease names in the text box
-sorted_text = ", ".join(disease_list)
-st.text_area("Selected Diseases:", value=sorted_text, height=200)
+# Output the selected diseases as a comma-separated string
+st.write("Output:", text_input)
