@@ -8,10 +8,8 @@ diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
 
-# Display disease checkboxes and buttons
+# Display disease checkboxes
 for disease in diseases:
-    st.write(disease)
-    checkbox_value = st.number_input(f"Enter 0 or 1 for {disease}", min_value=0, max_value=1, value=0, step=1)
-    
+    checkbox_value = st.checkbox(disease)
 
 # You can add any additional content or functionality here
