@@ -10,18 +10,20 @@ text_input = st.text_area("Selected Diseases:")
 if st.button("CLEAR"):
     text_input = ""
 
-# List of diseases (replace with your list of 132 diseases)
+# List of diseases (replace with your 132 diseases)
 diseases = [
     "Disease 1", "Disease 2", "Disease 3",  # Add all 132 diseases here
 ]
 
 # Display buttons for each disease
-for disease in sorted(diseases):  # Sort diseases alphabetically
+for disease in diseases:
     if st.button(disease):
-        # If text area is not empty, add a comma before adding new disease
+        # Append disease name to text input
         if text_input:
             text_input += ", "
         text_input += disease
 
-# Output the selected diseases as a comma-separated string
-st.write("Output:", text_input)
+# Sort and display selected diseases alphabetically
+selected_diseases = sorted(text_input.split(", "))
+output_string = ", ".join(selected_diseases)
+st.write("Output:", output_string)
