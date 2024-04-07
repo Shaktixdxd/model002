@@ -24,5 +24,7 @@ if st.button("Save"):
     st.text_area("Selected Diseases:", value=output_string)
 
 # Copy button
-if st.button("Copy"):
-    st.text_area("Copied Text:", value=output_string, height=100)
+if st.button("Predict"):
+    # getting the input data from the user
+    col1 = st.columns(1)
+        Diseases = st.text_input('Number of Pregnancies')
