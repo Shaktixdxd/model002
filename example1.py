@@ -42,9 +42,9 @@ def predict_disease(symptoms):
 
 # Predict button
 if st.button("Predict"):
-    if "selected_symptoms" in locals():
+    #if "selected_symptoms" in locals():
         svm_pred, nb_pred = predict_disease(selected_symptoms)
         st.write("Predicted Disease (SVM Model):", svm_pred)
         st.write("Predicted Disease (Naive Bayes Model):", nb_pred)
-    else:
-        st.warning("Please save the selected symptoms before predicting.")
+    #else:
+        #st.warning("Please save the selected symptoms before predicting.")
