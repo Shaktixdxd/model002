@@ -28,7 +28,7 @@ if st.button("Save"):
     st.text_area("Selected Diseases:", value=output_string, height=100)
 
 
-if st.button('Diabetes Test Result'):
+if st.button("Diabetes Test Result"):
 result = svm_model.predict(output_string)
  st.text_area("Selected xxxxxs:", value=result, height=100)
     
