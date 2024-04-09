@@ -8,8 +8,12 @@ st.title("ML Disease Model")
 
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
-    "Symptom 1", "Symptom 2", "Symptom 3",  # Add all 132 symptoms here
+    "Itching", "Skin Rash", "Nodal Skin Eruptions",  # Add all 132 symptoms here
 ]
+
+# Load the SVM model
+with open('svm_modelxx.sav', 'rb') as f:
+    svm_model = pickle.load(f)
 
 # Dictionary to store checkbox values
 checkbox_values = {}
