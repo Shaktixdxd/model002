@@ -31,6 +31,7 @@ if st.button("Save Symptoms"):
     st.text_area("Selected Symptoms:", value=symptoms_output, height=100)
 
 DiseasesXYZ = st.text_input('Number of Pregnancies')
+User = DiseasesXYZ
 
 # Predict button for stored input
 if st.button("Predict from Stored Input"):
@@ -38,7 +39,7 @@ if st.button("Predict from Stored Input"):
     selected_symptoms = DiseasesXYZ.split(",")
     
     # Make prediction using the SVM model
-    #prediction = svm_model.predict([selected_symptoms])
+    prediction = svm_model.predict([selected_symptoms])
     
     # Display the predicted disease
     st.text("Predicted Disease from Stored Input:")
@@ -46,6 +47,8 @@ if st.button("Predict from Stored Input"):
     st.write("Hello2")
     st.write(DiseasesXYZ)
     st.write("DiseasesXYZ")
+    st.write(User)
+    st.write("User")
     st.write(predict_Disease("Itching,Skin Rash,Nodal Skin Eruptions"))
 
 if st.button("Predict"):
