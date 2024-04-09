@@ -29,4 +29,18 @@ if st.button("Save Symptoms"):
     symptoms_output = ", ".join(selected_symptoms)
     st.text_area("Selected Symptoms:", value=symptoms_output, height=100)
 
-Diseases = st.text_input('Number of Pregnancies')
+DiseasesXYZ = st.text_input('Number of Pregnancies')
+
+if st.button('Predict'):
+        diabzxc = diabetes_model.predict([[DiseasesXYZ]])
+        
+       # if (diab_prediction[0] == 1):
+        #  diab_diagnosis = 'The person is diabetic'
+        # else:
+         # diab_diagnosis = 'The person is not diabetic'
+        
+    #st.success(diab_diagnosis)
+
+print(diabzxc)
+print('diabzxc')
+print("diabzxc")
