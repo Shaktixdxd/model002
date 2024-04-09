@@ -39,7 +39,7 @@ if st.button("Predict from Stored Input"):
     selected_symptoms = DiseasesXYZ.split(",")
     
     # Make prediction using the SVM model
-    prediction = svm_model.predict([selected_symptoms])
+    #prediction = svm_model.predict([selected_symptoms])
     
     # Display the predicted disease
     st.text("Predicted Disease from Stored Input:")
