@@ -46,7 +46,7 @@ if st.button("Predict from Stored Input"):
     st.write("Hello2")
     st.write(DiseasesXYZ)
     st.write("DiseasesXYZ")
-    st.write(predictDisease("Itching,Skin Rash,Nodal Skin Eruptions"))
+    st.write(predict_Disease("Itching,Skin Rash,Nodal Skin Eruptions"))
 
 if st.button("Predict"):
     st.write("You clicked the predict button!")
