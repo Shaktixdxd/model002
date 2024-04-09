@@ -46,18 +46,12 @@ if st.button("Predict from Stored Input"):
     st.write("Hello2")
     st.write(DiseasesXYZ)
     st.write("DiseasesXYZ")
+    st.write(predictDisease("Itching,Skin Rash,Nodal Skin Eruptions"))
 
 if st.button("Predict"):
     st.write("You clicked the predict button!")
 
-#if st.button('Predict'):
- #       diabzxc = diabetes_model.predict([[DiseasesXYZ]])
-        
-       # if (diab_prediction[0] == 1):
-        #  diab_diagnosis = 'The person is diabetic'
-        # else:
-         # diab_diagnosis = 'The person is not diabetic'
-        
+
     #st.success(diab_diagnosis)
 
 
