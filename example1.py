@@ -33,6 +33,25 @@ if st.button("Save Symptoms"):
 DiseasesXYZ = st.text_input('Number of Pregnancies')
 User = DiseasesXYZ
 
+def predict_disease(symptoms):
+    symptoms = symptoms.split(",")
+    
+    # Create input data for the model
+    input_data = [0] * len(symptoms)
+    for symptom in symptoms:
+        if symptom.strip() in data_dict["symptom_index"]:
+            index = data_dict["symptom_index"][symptom.strip()]
+            input_data[index] = 1
+        else:
+            st.error(f"Invalid symptom: {symptom.strip()}")
+            return None
+    
+    # Reshape the input data and make prediction
+    input_data = np.array(input_data).reshape(1, -1)
+    prediction = svm_model.predict(input_data)[0]
+    disease = encoder.classes_[prediction]
+    return disease
+
 # Predict button for stored input
 if st.button("Predict from Stored Input"):
     # Split stored input into symptoms
