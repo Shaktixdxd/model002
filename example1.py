@@ -33,6 +33,20 @@ if st.button("Save Symptoms"):
 DiseasesXYZ = st.text_input('Number of Pregnancies')
 User = DiseasesXYZ
 
+symptoms = X.columns.values
+
+# Creating a symptom index dictionary to encode the
+# input symptoms into numerical form
+symptom_index = {}
+for index, value in enumerate(symptoms):
+    symptom = " ".join([i.capitalize() for i in value.split("_")])
+    symptom_index[symptom] = index
+
+data_dict = {
+    "symptom_index": symptom_index,
+    "predictions_classes": encoder.classes_
+}
+
 def predict_disease(symptoms):
     symptoms = symptoms.split(",")
     
