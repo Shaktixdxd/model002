@@ -1,15 +1,3 @@
-    predictions = {
-        "svm_model_prediction": svm_prediction,
-        "final_prediction": svm_prediction
-    }
-    return predictions
-
-# Testing the function
-print(predict_Disease("Itching,Nodal Skin Eruptions,Skin Rash"))
-print(predict_Disease("Bladder Discomfort,Continuous Feel Of Urine,Burning Micturition"))
-
-_______________________________________________________________________________________
-
 
 import streamlit as st
 import pickle
