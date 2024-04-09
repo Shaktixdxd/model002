@@ -43,3 +43,5 @@ if st.button("Predict"):
     # Display the predicted disease
     st.text("Predicted Disease:")
     st.write(prediction[0])
+
+Diseases = st.text_input('Number of Pregnancies')
