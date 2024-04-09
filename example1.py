@@ -43,14 +43,24 @@ if st.button("Predict from Stored Input"):
     
     # Display the predicted disease
     st.text("Predicted Disease from Stored Input:")
+    
+    st.write("1")
     #st.write(Hello)
+    st.write("2")
     st.write("Hello2")
+    st.write("3")
     st.write(DiseasesXYZ)
+    st.write("4")
     st.write("DiseasesXYZ")
+    st.write("5")
     st.write(User)
+    st.write("6")
     st.write("User")
+    st.write("7")
     st.write(predict_Disease("DiseasesXYZ"))
+    st.write("8")
     st.write(predict_Disease(DiseasesXYZ))
+    st.write("9")
     st.write(predict_Disease("Itching,Skin Rash,Nodal Skin Eruptions"))
 
 if st.button("Predict"):
