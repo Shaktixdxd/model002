@@ -54,6 +54,6 @@ if st.button("Predict from Stored Input"):
         
     #st.success(diab_diagnosis)
 
-print(diabzxc)
+#print(diabzxc)
 print('diabzxc')
 print("diabzxc")
