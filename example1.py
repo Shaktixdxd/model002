@@ -31,8 +31,21 @@ if st.button("Save Symptoms"):
 
 DiseasesXYZ = st.text_input('Number of Pregnancies')
 
-if st.button('Predict'):
-        diabzxc = diabetes_model.predict([[DiseasesXYZ]])
+# Predict button for stored input
+if st.button("Predict from Stored Input"):
+    # Split stored input into symptoms
+    selected_symptoms = DiseasesXYZ.split(",")
+    
+    # Make prediction using the SVM model
+    prediction = svm_model.predict([selected_symptoms])
+    
+    # Display the predicted disease
+    st.text("Predicted Disease from Stored Input:")
+    st.write(prediction[0])
+
+
+#if st.button('Predict'):
+ #       diabzxc = diabetes_model.predict([[DiseasesXYZ]])
         
        # if (diab_prediction[0] == 1):
         #  diab_diagnosis = 'The person is diabetic'
