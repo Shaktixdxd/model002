@@ -42,7 +42,7 @@ if st.button("Predict from Stored Input"):
     
     # Display the predicted disease
     st.text("Predicted Disease from Stored Input:")
-    st.write(Hello)
+    #st.write(Hello)
     st.write("Hello2")
 
 if st.button("Predict"):
