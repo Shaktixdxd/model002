@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import mode
 #import matplotlib.pyplot as plt
-import seaborn as sns
+#import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
