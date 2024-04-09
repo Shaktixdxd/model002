@@ -44,6 +44,8 @@ if st.button("Predict from Stored Input"):
     st.text("Predicted Disease from Stored Input:")
     #st.write(Hello)
     st.write("Hello2")
+    st.write(DiseasesXYZ)
+    st.write("DiseasesXYZ")
 
 if st.button("Predict"):
     st.write("You clicked the predict button!")
