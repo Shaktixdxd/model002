@@ -34,5 +34,12 @@ additional_input = st.text_input("Additional Input:")
 
 # Predict button for additional input
 if st.button("Predict"):
-    st.write("Predicting with additional input:", additional_input)
-    # You can add your prediction logic here based on the additional input
+    # Combine selected symptoms and additional input
+    input_data = selected_symptoms + [additional_input]
+    
+    # Make prediction using the SVM model
+    prediction = svm_model.predict([input_data])
+    
+    # Display the predicted disease
+    st.text("Predicted Disease:")
+    st.write(prediction[0])
