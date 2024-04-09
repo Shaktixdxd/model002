@@ -63,7 +63,7 @@ if st.button("Predict from Stored Input"):
     # Display the predicted disease
     st.text("Predicted Disease from Stored Input:")
     st.write(predict_disease(User))
-    st.write(svm_model.predict(Itching,Skin Rash,Nodal Skin Eruptions))
+    #st.write(svm_model.predict(Itching,Skin Rash,Nodal Skin Eruptions))
     st.write(svm_model.predict("Itching,Skin Rash,Nodal Skin Eruptions"))
     st.write(predict_disease("Itching,Skin Rash,Nodal Skin Eruptions"))
     st.write("1")
