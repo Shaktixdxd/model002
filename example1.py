@@ -33,46 +33,7 @@ if st.button("Save Symptoms"):
 DiseasesXYZ = st.text_input('Number of Pregnancies')
 User = DiseasesXYZ
 
-import streamlit as st
-import pandas as pd
-from sklearn.svm import SVC
-import numpy as np
-import pickle
-
-# Load the label-encoded dataset
-data = pd.read_csv('encoded_data.csv')
-
-# Load the trained SVM model
-with open("svm_model.pkl", "rb") as f:
-    svm_model = pickle.load(f)
-
-# Define a function to preprocess input symptoms and make predictions
-def predict_disease(symptoms):
-    # Preprocess the input symptoms (you may need to adapt this based on your data)
-    input_data = pd.DataFrame(columns=data.columns[:-1])
-    input_data.loc[0] = 0  # Initialize all values to 0
-    for symptom in symptoms.split(","):
-        input_data[symptom.strip()] = 1  # Set the value to 1 for each symptom present
-
-    # Make predictions using the loaded model
-    prediction = svm_model.predict(input_data)
-    predicted_disease = label_encoder.inverse_transform(prediction)[0]  # Decode the predicted disease
-    return predicted_disease
-
-# Streamlit web app
-st.title("Disease Prediction")
-
-# Input text box for symptoms
-symptoms_input = st.text_input("Enter symptoms separated by commas")
-
-# Button to make prediction
-if st.button("Predict"):
-    if symptoms_input:
-        predicted_disease = predict_disease(symptoms_input)
-        st.success(f"The predicted disease is: {predicted_disease}")
-    else:
-        st.warning("Please enter symptoms to predict the disease")
-
+MODEL = pickle.load(open('svm_modelDDDD', 'rb'))
 
 # Predict button for stored input
 if st.button("Predict from Stored Input"):
