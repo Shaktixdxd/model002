@@ -19,7 +19,7 @@ with open('svm_modelxx.sav', 'rb') as f:
 # Dictionary to store checkbox values
 checkbox_values = {}
 
---------------------------------------------------------------------------
+#--------------------------------------------------------------------------
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -69,7 +69,7 @@ print("Predicted Disease:", predicted_disease)
 
 
 
---------------------------------------------------------------------------
+#--------------------------------------------------------------------------
 
 # Display symptom checkboxes
 for symptom in symptoms:
