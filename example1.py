@@ -20,53 +20,6 @@ with open('svm_modelxx.sav', 'rb') as f:
 checkbox_values = {}
 
 #--------------------------------------------------------------------------
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-
-# Reading the train.csv by removing the 
-# last column since it's an empty column
-data = pd.read_csv('Training.csv').dropna(axis=1)
-
-# Encoding the target value into numerical
-# value using LabelEncoder
-encoder = LabelEncoder()
-data["prognosis"] = encoder.fit_transform(data["prognosis"])
-
-# Splitting data into features and target
-X = data.drop(columns=["prognosis"])
-y = data["prognosis"]
-
-# Creating a symptom index dictionary to encode the
-# input symptoms into numerical form
-symptom_index = {}
-for index, value in enumerate(X.columns):
-    symptom = " ".join([i.capitalize() for i in value.split("_")])
-    symptom_index[symptom] = index
-
-# Training the SVM model
-svm_model = SVC()
-svm_model.fit(X, y)
-
-# Input symptoms from the user
-input_symptoms = input("Enter the symptoms separated by commas: ")
-
-# Preprocess the input symptoms and make predictions
-input_data = [0] * len(symptom_index)
-for symptom in input_symptoms.split(","):
-    index = symptom_index.get(symptom.strip().capitalize())
-    if index is not None:
-        input_data[index] = 1
-
-# Reshape the input data and make predictions
-input_data = np.array(input_data).reshape(1, -1)
-predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
-
-# Print the predicted disease
-print("Predicted Disease:", predicted_disease)
-
 
 
 #--------------------------------------------------------------------------
