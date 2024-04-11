@@ -5,6 +5,8 @@ import numpy as np
 import streamlit as st
 
 
+@st.cache(allow_output_mutation=True)
+------------------------
 # Set page title
 st.title("ML Disease Model")
 
