@@ -32,24 +32,47 @@ if st.button("Save Symptoms"):
 
 DiseasesXYZ = st.text_input('Number of Pregnancies')
 User = DiseasesXYZ
+
+import streamlit as st
+import pandas as pd
+from sklearn.svm import SVC
+import numpy as np
+import pickle
+
+# Load the label-encoded dataset
+data = pd.read_csv('encoded_data.csv')
+
+# Load the trained SVM model
+with open("svm_model.pkl", "rb") as f:
+    svm_model = pickle.load(f)
+
+# Define a function to preprocess input symptoms and make predictions
 def predict_disease(symptoms):
-    symptoms = symptoms.split(",")
-    
-    # Create input data for the model
-    input_data = [0] * len(symptoms)
-    for symptom in symptoms:
-        if symptom.strip() in data_dict["symptom_index"]:
-            index = data_dict["symptom_index"][symptom.strip()]
-            input_data[index] = 1
-        else:
-            st.error(f"Invalid symptom: {symptom.strip()}")
-            return None
-    
-    # Reshape the input data and make prediction
-    input_data = np.array(input_data).reshape(1, -1)
-    prediction = svm_model.predict(input_data)[0]
-    disease = encoder.classes_[prediction]
-    return disease
+    # Preprocess the input symptoms (you may need to adapt this based on your data)
+    input_data = pd.DataFrame(columns=data.columns[:-1])
+    input_data.loc[0] = 0  # Initialize all values to 0
+    for symptom in symptoms.split(","):
+        input_data[symptom.strip()] = 1  # Set the value to 1 for each symptom present
+
+    # Make predictions using the loaded model
+    prediction = svm_model.predict(input_data)
+    predicted_disease = label_encoder.inverse_transform(prediction)[0]  # Decode the predicted disease
+    return predicted_disease
+
+# Streamlit web app
+st.title("Disease Prediction")
+
+# Input text box for symptoms
+symptoms_input = st.text_input("Enter symptoms separated by commas")
+
+# Button to make prediction
+if st.button("Predict"):
+    if symptoms_input:
+        predicted_disease = predict_disease(symptoms_input)
+        st.success(f"The predicted disease is: {predicted_disease}")
+    else:
+        st.warning("Please enter symptoms to predict the disease")
+
 
 # Predict button for stored input
 if st.button("Predict from Stored Input"):
