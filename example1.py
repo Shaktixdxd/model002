@@ -95,12 +95,12 @@ if st.button("Predict"):
         input_data = np.array(input_data).reshape(1, -1)
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
-    if predicted_disease == 15:
-        disease_name = "Fungal Infection"
-    dd = "zxc"
+                    if predicted_disease == 15:
+                        disease_name = "Fungal Infection"
+                    dd = "zxc"
 
-# Display the predicted disease
-st.success(f"The predicted disease is: {dd}")
+            # Display the predicted disease
+            st.success(f"The predicted disease is: {dd}")
 
 
 #--------------------------------------------------------------------------
