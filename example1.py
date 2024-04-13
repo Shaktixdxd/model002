@@ -180,7 +180,7 @@ if st.button("Predict"):
         disease_name = "Varicose Veins"
 
     # Display the predicted disease
-        st.success(f"The predicted disease is: {Predicted_disease}")
+        st.success(f"The predicted disease is: {predicted_disease}")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
