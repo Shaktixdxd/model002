@@ -1,7 +1,11 @@
+import streamlit as st
+
+# Set page title
+st.title("ML Disease Model")
 
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
-    "Itching", "Skin Rash", "Nodal Skin Eruptions",  # Add all 132 symptoms here
+    "Symptom 1", "Symptom 2", "Symptom 3",  # Add all 132 symptoms here
 ]
 
 # Dictionary to store checkbox values
@@ -17,7 +21,6 @@ if st.button("Save"):
     selected_symptoms.sort()
     output_string = ", ".join(selected_symptoms)
     st.text_area("Selected Symptoms:", value=output_string, height=100)
-
 
 
 #--------------------------------------------------------------------------
