@@ -147,7 +147,7 @@ def get_disease_name(number):
 disease_name = get_disease_name(predicted_disease)
 
     # Display the predicted disease
-        st.success(f"The predicted disease is: {disease_name}")
+        st.success(f"The predicted disease is: disease_name")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
