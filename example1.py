@@ -97,8 +97,8 @@ if st.button("Predict"):
 
         disease_name = "zxc"
 
-        if predicted_disease == 15:
-    disease_name = "Fungal Infection"
+    if predicted_disease == 15:
+        disease_name = "Fungal Infection"
     
     # Display the predicted disease
         st.success(f"The predicted disease is: {disease_name}")
