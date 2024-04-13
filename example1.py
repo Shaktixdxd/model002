@@ -2,7 +2,7 @@
 import streamlit as st
 
 # Set page title
-st.title("ML Disease Model")
+st.title("ML Disease Prediction Model")
 
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
@@ -94,9 +94,58 @@ if st.button("Predict"):
         # Reshape the input data and make prediction
         input_data = np.array(input_data).reshape(1, -1)
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
+
+def print_disease(predicted_disease):
+    diseases = {
+        1: "Acne",
+        2: "AIDS",
+        3: "Alcoholic Hepatitis",
+        4: "Allergy",
+        5: "Arthritis",
+        6: "Bronchial Asthma",
+        7: "Cervical Spondylosis",
+        8: "Chicken Pox",
+        9: "Chronic Cholestasis",
+        10: "Common Cold",
+        11: "Dengue",
+        12: "Diabetes",
+        13: "Dimorphic Hemorrhoids (Piles)",
+        14: "Drug Reaction",
+        15: "Fungal Infection",
+        16: "Gastroenteritis",
+        17: "GERD",
+        18: "Heart Attack",
+        19: "Hepatitis A",
+        20: "Hepatitis B",
+        21: "Hepatitis C",
+        22: "Hepatitis D",
+        23: "Hepatitis E",
+        24: "Hypertension",
+        25: "Hyperthyroidism",
+        26: "Hypoglycemia",
+        27: "Hypothyroidism",
+        28: "Impetigo",
+        29: "Jaundice",
+        30: "Malaria",
+        31: "Migraine",
+        32: "Osteoarthritis",
+        33: "Paralysis (Brain Hemorrhage)",
+        34: "Paroxysmal Positional Vertigo (Vertigo)",
+        35: "Peptic Ulcer Disease",
+        36: "Pneumonia",
+        37: "Psoriasis",
+        38: "Tuberculosis",
+        39: "Typhoid",
+        40: "Urinary Tract Infection",
+        41: "Varicose Veins"
+    }
+if input_value in diseases:
+        return diseases[input_value]
+    else:
+        return "Invalid input value"
         
         # Display the predicted disease
-        st.success(f"The predicted disease is: {predicted_disease}")
+        st.success(f"The predicted disease is: {print_disease}")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
