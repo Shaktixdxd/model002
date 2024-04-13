@@ -141,8 +141,7 @@ def print_disease(predicted_disease):
     }
 if input_value in diseases:
         return diseases[input_value]
-    else:
-        return "Invalid input value"
+   
         
         # Display the predicted disease
         st.success(f"The predicted disease is: {print_disease}")
