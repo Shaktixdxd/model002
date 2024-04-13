@@ -95,7 +95,7 @@ if st.button("Predict"):
         input_data = np.array(input_data).reshape(1, -1)
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
-        disease_name = ""
+        disease_name = "zxc"
     if predicted_disease == 1:
         disease_name = "Acne"
     if predicted_disease == 2:
