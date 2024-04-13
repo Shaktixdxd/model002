@@ -98,10 +98,11 @@ if st.button("Predict"):
     if predicted_disease == 15:
         disease_name = "Fungal Infection"
     dd = "zxc"
-    # Display the predicted disease
-    st.success(f"The predicted disease is: {dd}")
-    else:
-        st.warning("Please enter symptoms to predict the disease")
+
+# Display the predicted disease
+st.success(f"The predicted disease is: {dd}")
+else:
+    st.warning("Please enter symptoms to predict the disease")
 
 
 #--------------------------------------------------------------------------
