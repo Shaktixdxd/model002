@@ -7,24 +7,24 @@ st.title("ML Disease Prediction Model")
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
     "Abdominal Pain", "Abnormal Menstruation", "Acidity", "Acute Liver Failure", "Altered Sensorium", "Anxiety", 
-    "Back Pain", "Belly Pain", "Blackheads", "Blister", "Blood in Sputum", "Bloody Stool", "Blurred and Distorted Vision", 
-    "Breathlessness", "Brittle Nails", "Burning Micturition", "Chills", "Cold Hands and Feets", "coma", "Congestion", 
+    "Back Pain", "Belly Pain", "Blackheads", "Blister", "Blood in Sputum", "Bloody Stool", "Bladder Discomfort", "Blurred and Distorted Vision", 
+    "Breathlessness", "Brittle Nails", "Bruising", "Burning Micturition", "Chest Pain", "Chills", "Cold Hands and Feets", "Coma", "Congestion", 
     "Constipation", "Continuous Feel of Urine", "Continuous Sneezing", "Cough", "Cramps", "Dark Urine", "Dehydration", 
-    "Depression", "Diarrhoea", "Dischromic Patches", "Dizziness", "Drying and Tingling Lips", "Enlarged Thyroid", 
+    "Depression", "Diarrhoea", "Dischromic Patches", "Distention of Abdomen", "Dizziness", "Drying and Tingling Lips", "Enlarged Thyroid", 
     "Excessive Hunger", "Extra Marital Contacts", "Family History", "Fast Heart Rate", "Fatigue", "Fluid Overload", 
-    "Foul Smell of Urine", "Frequent Urination", "High Fever", "History of Alcohol Consumption", "Hip Joint Pain", 
-    "Irritability", "Irritation in Anus", "Itching", "Joint Pain", "Knee Pain", "Lack of Concentration", "Lethargy", 
-    "Loss of Appetite", "Loss of Balance", "Loss of Smell", "Malaise", "Mood Swings", "Movement Stiffness", "Muscle Pain", 
+    "Foul Smell of Urine", "Frequent Urination", "Headache", "High Fever", "History of Alcohol Consumption", "Hip Joint Pain", 
+    "Indigestion", "Increased Appetite", "Inflammatory Nails", "Internal Itching", "Irregular Sugar Level", "Irritability", "Irritation in Anus", "Itching", "Joint Pain", "Knee Pain", "Lack of Concentration", "Lethargy", 
+    "Loss of Appetite", "Loss of Balance", "Loss of Smell", "Malaise", "Mild Fever", "Mood Swings", "Movement Stiffness", "Muscle Pain", 
     "Muscle Weakness", "Muscle Wasting", "Mucoid Sputum", "Nausea", "Neck Pain", "Nodal Skin Eruptions", "Obesity", 
     "Pain Behind the Eyes", "Pain During Bowel Movements", "Pain in Anal Region", "Painful Walking", "Palpitations", 
-    "Passage of Gases", "Phlegm", "Polyuria", "Prominent Veins on Calf", "Puffy Face and Eyes", "Pus Filled Pimples", 
+    "Passage of Gases", "Patches in Throat", "Phlegm", "Polyuria", "Prominent Veins on Calf", "Puffy Face and Eyes", "Pus Filled Pimples", 
     "Rapid Heart Rate", "Red Sore Around Nose", "Red Spots Over Body", "Receiving Blood Transfusion", 
-    "Receiving Unsterile Injections", "Restlessness", "Rusty Sputum", "Runny Nose", "Scarring", "Shivering", 
-    "Silver Like Dusting", "Sinus Pressure", "Skin Peeling", "Skin Rash", "Small Dents in Nails", "Spinning Movements", 
+    "Receiving Unsterile Injections", "Redness of Eyes", "Restlessness", "Rusty Sputum", "Runny Nose", "Scurring", "Shivering", 
+    "Silver Like Dusting", "Sinus Pressure", "Skin Peeling", "Skin Rash", "Slurred Speech", "Small Dents in Nails", "Spinning Movements", 
     "Spotting Urination", "Stiff Neck", "Stomach Bleeding", "Stomach Pain", "Sudden High Fever", "Sunken Eyes", "Sweating", 
-    "Swelling Joints", "Swelling of Stomach", "Swollen Blood Vessels", "Swollen Extremities", "Swollen Legs", "Throat Irritation", 
+    "Swelling Joints", "Swelling of Stomach", "Swelled Lymph Nodes", "Swollen Blood Vessels", "Swollen Extremities", "Swollen Legs", "Throat Irritation", 
     "Toxic Look (Typhos)", "Ulcers on Tongue", "Unsteadiness", "Visual Disturbances", "Vomiting", "Watering from Eyes", 
-    "Weakness in Limbs", "Weakness of One Body Side", "Weight Gain", "Weight Loss", "Yellow Crust Ooze", "Yellowing of Eyes", "Yellowish Skin"
+    "Weakness in Limbs", "Weakness of One Body Side", "Weight Gain", "Weight Loss", "Yellow Crust Ooze", "Yellowing of Eyes", "Yellowish Skin", "Yellow Urine"
 ]
 
 # Dictionary to store checkbox values
