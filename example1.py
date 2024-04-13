@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 # Set page title
@@ -5,7 +6,7 @@ st.title("ML Disease Model")
 
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
-   "Abdominal Pain", "Abnormal Menstruation", "Acidity", "Acute Liver Failure", "Altered Sensorium", "Anxiety", 
+    "Abdominal Pain", "Abnormal Menstruation", "Acidity", "Acute Liver Failure", "Altered Sensorium", "Anxiety", 
     "Back Pain", "Belly Pain", "Blackheads", "Blister", "Blood in Sputum", "Bloody Stool", "Blurred and Distorted Vision", 
     "Breathlessness", "Brittle Nails", "Burning Micturition", "Chills", "Cold Hands and Feets", "coma", "Congestion", 
     "Constipation", "Continuous Feel of Urine", "Continuous Sneezing", "Cough", "Cramps", "Dark Urine", "Dehydration", 
@@ -26,19 +27,12 @@ symptoms = [
     "Weakness in Limbs", "Weakness of One Body Side", "Weight Gain", "Weight Loss", "Yellow Crust Ooze", "Yellowing of Eyes", "Yellowish Skin"
 ]
 
-
 # Dictionary to store checkbox values
 checkbox_values = {}
 
 # Display symptom checkboxes
-col1, col2 = st.columns(2)
-with col1:
-    for symptom in symptoms[:66]:
-        checkbox_values[symptom] = st.number_input(f"{symptom}:", min_value=0, max_value=1, value=0, step=1, key=symptom, width=60)
-
-with col2:
-    for symptom in symptoms[66:]:
-        checkbox_values[symptom] = st.number_input(f"{symptom}:", min_value=0, max_value=1, value=0, step=1, key=symptom, width=60)
+for symptom in symptoms:
+    checkbox_values[symptom] = st.number_input(f"{symptom}:", min_value=0, max_value=1, value=0, step=1, key=symptom)
 
 # Save button
 if st.button("Save"):
