@@ -99,7 +99,7 @@ if predicted_disease == 15:
     disease_name = "Fungal Infection"
         
     # Display the predicted disease
-        st.success(f"The predicted disease is: {predicted_disease}")
+        st.success(f"The predicted disease is: disease_name}")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
