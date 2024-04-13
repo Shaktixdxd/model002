@@ -101,8 +101,6 @@ if st.button("Predict"):
 
 # Display the predicted disease
 st.success(f"The predicted disease is: {dd}")
-else:
-st.warning("Please enter symptoms to predict the disease")
 
 
 #--------------------------------------------------------------------------
