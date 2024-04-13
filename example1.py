@@ -96,7 +96,7 @@ if st.button("Predict"):
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
     # Display the predicted disease
-        st.success(f"The predicted disease is: disease_name")
+        st.success(f"The predicted disease is: {disease_name}")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
