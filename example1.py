@@ -14,13 +14,6 @@ symptoms = [
     "Itching", "Skin Rash", "Nodal Skin Eruptions",  # Add all 132 symptoms here
 ]
 
-# Load the SVM model
-with open('svm_modelxx.sav', 'rb') as f:
-    svm_model = pickle.load(f)
-
-# Dictionary to store checkbox values
-checkbox_values = {}
-
 #--------------------------------------------------------------------------
 import streamlit as st
 import pandas as pd
