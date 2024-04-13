@@ -95,57 +95,6 @@ if st.button("Predict"):
         input_data = np.array(input_data).reshape(1, -1)
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
-def get_disease_name(number):
-    diseases = [
-        "Acne",
-        "AIDS",
-        "Alcoholic Hepatitis",
-        "Allergy",
-        "Arthritis",
-        "Bronchial Asthma",
-        "Cervical Spondylosis",
-        "Chicken Pox",
-        "Chronic Cholestasis",
-        "Common Cold",
-        "Dengue",
-        "Diabetes",
-        "Dimorphic Hemorrhoids (Piles)",
-        "Drug Reaction",
-        "Fungal Infection",
-        "Gastroenteritis",
-        "GERD",
-        "Heart Attack",
-        "Hepatitis A",
-        "Hepatitis B",
-        "Hepatitis C",
-        "Hepatitis D",
-        "Hepatitis E",
-        "Hypertension",
-        "Hyperthyroidism",
-        "Hypoglycemia",
-        "Hypothyroidism",
-        "Impetigo",
-        "Jaundice",
-        "Malaria",
-        "Migraine",
-        "Osteoarthritis",
-        "Paralysis (Brain Hemorrhage)",
-        "Paroxysmal Positional Vertigo (Vertigo)",
-        "Peptic Ulcer Disease",
-        "Pneumonia",
-        "Psoriasis",
-        "Tuberculosis",
-        "Typhoid",
-        "Urinary Tract Infection",
-        "Varicose Veins"
-    ]
-    if number >= 1 and number <= len(diseases):
-        return diseases[number - 1]
-    else:
-        return "Invalid input"
-
-disease_name = get_disease_name(predicted_disease)
-
     # Display the predicted disease
         st.success(f"The predicted disease is: disease_name")
     else:
