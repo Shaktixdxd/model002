@@ -96,63 +96,89 @@ if st.button("Predict"):
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
         disease_name = ""
+if predicted_disease == 1:
+    disease_name = "Acne"
+if predicted_disease == 2:
+    disease_name = "AIDS"
+if predicted_disease == 3:
+    disease_name = "Alcoholic Hepatitis"
+if predicted_disease == 4:
+    disease_name = "Allergy"
+if predicted_disease == 5:
+    disease_name = "Arthritis"
+if predicted_disease == 6:
+    disease_name = "Bronchial Asthma"
+if predicted_disease == 7:
+    disease_name = "Cervical Spondylosis"
+if predicted_disease == 8:
+    disease_name = "Chicken Pox"
+if predicted_disease == 9:
+    disease_name = "Chronic Cholestasis"
+if predicted_disease == 10:
+    disease_name = "Common Cold"
+if predicted_disease == 11:
+    disease_name = "Dengue"
+if predicted_disease == 12:
+    disease_name = "Diabetes"
+if predicted_disease == 13:
+    disease_name = "Dimorphic Hemorrhoids (Piles)"
+if predicted_disease == 14:
+    disease_name = "Drug Reaction"
+if predicted_disease == 15:
+    disease_name = "Fungal Infection"
+if predicted_disease == 16:
+    disease_name = "Gastroenteritis"
+if predicted_disease == 17:
+    disease_name = "GERD"
+if predicted_disease == 18:
+    disease_name = "Heart Attack"
+if predicted_disease == 19:
+    disease_name = "Hepatitis A"
+if predicted_disease == 20:
+    disease_name = "Hepatitis B"
+if predicted_disease == 21:
+    disease_name = "Hepatitis C"
+if predicted_disease == 22:
+    disease_name = "Hepatitis D"
+if predicted_disease == 23:
+    disease_name = "Hepatitis E"
+if predicted_disease == 24:
+    disease_name = "Hypertension"
+if predicted_disease == 25:
+    disease_name = "Hyperthyroidism"
+if predicted_disease == 26:
+    disease_name = "Hypoglycemia"
+if predicted_disease == 27:
+    disease_name = "Hypothyroidism"
+if predicted_disease == 28:
+    disease_name = "Impetigo"
+if predicted_disease == 29:
+    disease_name = "Jaundice"
+if predicted_disease == 30:
+    disease_name = "Malaria"
+if predicted_disease == 31:
+    disease_name = "Migraine"
+if predicted_disease == 32:
+    disease_name = "Osteoarthritis"
+if predicted_disease == 33:
+    disease_name = "Paralysis (Brain Hemorrhage)"
+if predicted_disease == 34:
+    disease_name = "Paroxysmal Positional Vertigo (Vertigo)"
+if predicted_disease == 35:
+    disease_name = "Peptic Ulcer Disease"
+if predicted_disease == 36:
+    disease_name = "Pneumonia"
+if predicted_disease == 37:
+    disease_name = "Psoriasis"
+if predicted_disease == 38:
+    disease_name = "Tuberculosis"
+if predicted_disease == 39:
+    disease_name = "Typhoid"
+if predicted_disease == 40:
+    disease_name = "Urinary Tract Infection"
+if predicted_disease == 41:
+    disease_name = "Varicose Veins"
 
-
-# Dictionary mapping disease numbers to disease names
-disease_names = {
-    1: "Acne",
-    2: "AIDS",
-    3: "Alcoholic Hepatitis",
-    4: "Allergy",
-    5: "Arthritis",
-    6: "Bronchial Asthma",
-    7: "Cervical Spondylosis",
-    8: "Chicken Pox",
-    9: "Chronic Cholestasis",
-    10: "Common Cold",
-    11: "Dengue",
-    12: "Diabetes",
-    13: "Dimorphic Hemorrhoids (Piles)",
-    14: "Drug Reaction",
-    15: "Fungal Infection",
-    16: "Gastroenteritis",
-    17: "GERD",
-    18: "Heart Attack",
-    19: "Hepatitis A",
-    20: "Hepatitis B",
-    21: "Hepatitis C",
-    22: "Hepatitis D",
-    23: "Hepatitis E",
-    24: "Hypertension",
-    25: "Hyperthyroidism",
-    26: "Hypoglycemia",
-    27: "Hypothyroidism",
-    28: "Impetigo",
-    29: "Jaundice",
-    30: "Malaria",
-    31: "Migraine",
-    32: "Osteoarthritis",
-    33: "Paralysis (Brain Hemorrhage)",
-    34: "Paroxysmal Positional Vertigo (Vertigo)",
-    35: "Peptic Ulcer Disease",
-    36: "Pneumonia",
-    37: "Psoriasis",
-    38: "Tuberculosis",
-    39: "Typhoid",
-    40: "Urinary Tract Infection",
-    41: "Varicose Veins"
-}
-
-# Check if the predicted_disease is in the dictionary and assign the corresponding disease name to disease_name
-if predicted_disease in disease_names:
-    disease_name = disease_names[predicted_disease]
-else:
-    disease_name = "Disease not found"
-
-print(disease_name)  # Output: "Fungal Infection"
-
-
-        
     # Display the predicted disease
         st.success(f"The predicted disease is: {disease_name}")
     else:
