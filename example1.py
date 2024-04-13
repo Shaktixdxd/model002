@@ -1,7 +1,4 @@
 
-# Set page title
-st.title("ML Disease Model")
-
 # List of symptoms (replace with your 132 symptoms)
 symptoms = [
     "Itching", "Skin Rash", "Nodal Skin Eruptions",  # Add all 132 symptoms here
