@@ -25,7 +25,7 @@ symptoms = [
     "Toxic Look (Typhos)", "Ulcers on Tongue", "Unsteadiness", "Visual Disturbances", "Vomiting", "Watering from Eyes", 
     "Weakness in Limbs", "Weakness of One Body Side", "Weight Gain", "Weight Loss", "Yellow Crust Ooze", "Yellowing of Eyes", "Yellowish Skin"
 ]
-]
+
 
 # Dictionary to store checkbox values
 checkbox_values = {}
