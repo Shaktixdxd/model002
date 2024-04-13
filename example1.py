@@ -50,7 +50,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.svm import SVC
 
 # Load the dataset
-@st.cache
+@st.cache(suppress_st_warning=True)
 def load_data():
     data = pd.read_csv('Training.csv').dropna(axis=1)
     return data
