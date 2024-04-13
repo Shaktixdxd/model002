@@ -95,56 +95,59 @@ if st.button("Predict"):
         input_data = np.array(input_data).reshape(1, -1)
         predicted_disease = encoder.inverse_transform(svm_model.predict(input_data))[0]
 
-def print_disease(predicted_disease):
-    diseases = {
-        1: "Acne",
-        2: "AIDS",
-        3: "Alcoholic Hepatitis",
-        4: "Allergy",
-        5: "Arthritis",
-        6: "Bronchial Asthma",
-        7: "Cervical Spondylosis",
-        8: "Chicken Pox",
-        9: "Chronic Cholestasis",
-        10: "Common Cold",
-        11: "Dengue",
-        12: "Diabetes",
-        13: "Dimorphic Hemorrhoids (Piles)",
-        14: "Drug Reaction",
-        15: "Fungal Infection",
-        16: "Gastroenteritis",
-        17: "GERD",
-        18: "Heart Attack",
-        19: "Hepatitis A",
-        20: "Hepatitis B",
-        21: "Hepatitis C",
-        22: "Hepatitis D",
-        23: "Hepatitis E",
-        24: "Hypertension",
-        25: "Hyperthyroidism",
-        26: "Hypoglycemia",
-        27: "Hypothyroidism",
-        28: "Impetigo",
-        29: "Jaundice",
-        30: "Malaria",
-        31: "Migraine",
-        32: "Osteoarthritis",
-        33: "Paralysis (Brain Hemorrhage)",
-        34: "Paroxysmal Positional Vertigo (Vertigo)",
-        35: "Peptic Ulcer Disease",
-        36: "Pneumonia",
-        37: "Psoriasis",
-        38: "Tuberculosis",
-        39: "Typhoid",
-        40: "Urinary Tract Infection",
-        41: "Varicose Veins"
-    }
-if input_value in diseases:
-        return diseases[input_value]
-   
-        
-        # Display the predicted disease
-        st.success(f"The predicted disease is: {print_disease}")
+def get_disease_name(number):
+    diseases = [
+        "Acne",
+        "AIDS",
+        "Alcoholic Hepatitis",
+        "Allergy",
+        "Arthritis",
+        "Bronchial Asthma",
+        "Cervical Spondylosis",
+        "Chicken Pox",
+        "Chronic Cholestasis",
+        "Common Cold",
+        "Dengue",
+        "Diabetes",
+        "Dimorphic Hemorrhoids (Piles)",
+        "Drug Reaction",
+        "Fungal Infection",
+        "Gastroenteritis",
+        "GERD",
+        "Heart Attack",
+        "Hepatitis A",
+        "Hepatitis B",
+        "Hepatitis C",
+        "Hepatitis D",
+        "Hepatitis E",
+        "Hypertension",
+        "Hyperthyroidism",
+        "Hypoglycemia",
+        "Hypothyroidism",
+        "Impetigo",
+        "Jaundice",
+        "Malaria",
+        "Migraine",
+        "Osteoarthritis",
+        "Paralysis (Brain Hemorrhage)",
+        "Paroxysmal Positional Vertigo (Vertigo)",
+        "Peptic Ulcer Disease",
+        "Pneumonia",
+        "Psoriasis",
+        "Tuberculosis",
+        "Typhoid",
+        "Urinary Tract Infection",
+        "Varicose Veins"
+    ]
+    if number >= 1 and number <= len(diseases):
+        return diseases[number - 1]
+    else:
+        return "Invalid input"
+
+disease_name = get_disease_name(predicted_disease)
+
+    # Display the predicted disease
+        st.success(f"The predicted disease is: {disease_name}")
     else:
         st.warning("Please enter symptoms to predict the disease")
 
